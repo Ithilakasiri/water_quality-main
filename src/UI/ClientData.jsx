@@ -14,6 +14,7 @@ const ClientData = () => {
   const [dates, setDates] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedDates, setSelectedDates] = useState([]);
+  
 
   useEffect(() => {
     const fetchClients = async () => {
