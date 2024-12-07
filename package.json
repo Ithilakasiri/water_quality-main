@@ -1,5 +1,6 @@
 {
-  "name": "water_quality",
+  "homepage": "https://Ithilakasiri.github.io/water_quality-main",
+  "name": "water_quality-main",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,6 +16,7 @@
     "chart.js": "^4.4.6",
     "chartjs-chart-matrix": "^2.0.1",
     "firebase": "^11.0.2",
+    "gh-pages": "^6.2.0",
     "jspdf": "^2.5.2",
     "jspdf-autotable": "^3.8.4",
     "leaflet": "^1.9.4",

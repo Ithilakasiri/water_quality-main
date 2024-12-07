@@ -27,7 +27,9 @@ const router = createBrowserRouter([
       { path: "/client-data", element: <ClientData /> },
     ],
   },
-]);
+],{
+  basename: '/water_quality-main'
+});
 
 export default function MainApp() {
   return <RouterProvider router={router} />;
