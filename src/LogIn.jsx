@@ -12,63 +12,63 @@ const login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+  // const handleLogin = async (event) => {
+  //   event.preventDefault();
 
-    try {
-      const membersRef = ref(database, "members");
-      const snapshot = await get(membersRef);
+  //   try {
+  //     const membersRef = ref(database, "members");
+  //     const snapshot = await get(membersRef);
 
-      if (snapshot.exists()) {
-        let userFound = false;
+  //     if (snapshot.exists()) {
+  //       let userFound = false;
 
-        snapshot.forEach(childSnapshot => {
-          const userData = childSnapshot.val();
+  //       snapshot.forEach(childSnapshot => {
+  //         const userData = childSnapshot.val();
 
-          if (userData.username === username) {
-            userFound = true;
+  //         if (userData.username === username) {
+  //           userFound = true;
 
-            if (userData.password === password) {
-              if (userData.status === "Inactive") {
-                toast.error("Account temporarily blocked, please contact WQS officer");
-              } else {
-                toast.success("Login successful");
+  //           if (userData.password === password) {
+  //             if (userData.status === "Inactive") {
+  //               toast.error("Account temporarily blocked, please contact WQS officer");
+  //             } else {
+  //               toast.success("Login successful");
             
-                // Store user data in localStorage
-                localStorage.setItem("userData", JSON.stringify({
-                  username: userData.username,
-                  role: userData.role,
-                  status: userData.status,
-                }));
+  //               // Store user data in localStorage
+  //               localStorage.setItem("userData", JSON.stringify({
+  //                 username: userData.username,
+  //                 role: userData.role,
+  //                 status: userData.status,
+  //               }));
             
-                // // Navigate based on user role
-                if (userData.role === "Admin") {
-                  navigate("/dashboard");
-                } else if (userData.role === "Client") {
-                  navigate("/sensor-data");
-                }
+  //               // // Navigate based on user role
+  //               // if (userData.role === "Admin") {
+  //               //   navigate("/dashboard");
+  //               // } else if (userData.role === "Client") {
+  //               //   navigate("/sensor-data");
+  //               // }
             
-                setTimeout(() => {
-                }, 3000);
-              }
-            } else {
-              toast.error("Incorrect Login Credentials");
-            }
+  //               setTimeout(() => {
+  //               }, 3000);
+  //             }
+  //           } else {
+  //             toast.error("Incorrect Login Credentials");
+  //           }
             
-          }
-        });
+  //         }
+  //       });
 
-        if (!userFound) {
-          toast.error("Incorrect Login Credentials");
-        }
-      } else {
-        toast.error("Incorrect Login Credentials");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      toast.error("An error occurred. Please try again.");
-    }
-  };
+  //       if (!userFound) {
+  //         toast.error("Incorrect Login Credentials");
+  //       }
+  //     } else {
+  //       toast.error("Incorrect Login Credentials");
+  //     }
+  //   } catch (error) {
+  //     console.error("Login error:", error);
+  //     toast.error("An error occurred. Please try again.");
+  //   }
+  // };
 
   return (
     <>
