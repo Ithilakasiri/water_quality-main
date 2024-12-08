@@ -572,7 +572,15 @@ const Reports = () => {
     } else {
       toast.success("Data reset");
       setTimeout(() => {
-        window.location.reload();
+        setSelectedLocations([]);
+        setSelectedDates([]);
+        setProcessedData([]);
+        setSvmPredictions([]);
+        setTreePredictions([]);
+        setmatchingDevices([]);
+        setStatistics(null);
+        setAccuracies({ svm: 0, tree: 0, knn: 0 });
+        setVisualizeClicked(false);
       }, 3000);
     }
   };
